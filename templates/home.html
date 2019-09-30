@@ -1,0 +1,28 @@
+
+{% extends 'layout.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<div class="container", "jumbotron">
+  <div class="row">
+    <!-- <div class="col-md-6 col-md-offset-3"> -->
+      <br>
+      <div class="jumbotron">
+      {% if session['name'] %}
+
+      <h2>Welcome {{session['name']}}</h2>
+      <h2>You have successfully logged in!</h2>
+      <img src="../static/book3.jpg" alt="">
+          <h3>Select a required option to lend or borrow a book!</h3>
+          <button type="button" class="btn btn-outline-primary" onclick="window.location.href = '/lend';">Lend</button>
+          <button type="button" class="btn btn-outline-primary"href = "/borrow">Borrow</button>
+      <!-- </div> -->
+      {% else %}
+        <h1> Lend or borrow a book!</h1>
+        <h4>Login to Continue..</h4>
+        <img src="../static/book2.jpg" alt="">
+
+      {% endif %}
+      </div>
+  <!-- </div> -->
+</div>
+{% endblock %}
