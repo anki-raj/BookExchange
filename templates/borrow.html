@@ -2,17 +2,54 @@
 
 {%block content%}
 
-<div class="jumbotron">
     {% for post in book %}
-    <div class="jumbotron">
-      <div class="container">
-        <h1> Name : {{post.book_name}}</h1>
-        <h2> Contact : {{post.contact_detail}} </h2>
-      </div>
-    </div>
-    <br>
-    {%endfor%}
+    <!-- <center><div class="card" style="width: 18rem;">
+  <img src="../static/book.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div></center>
+<br>
+<br> -->
+<!-- Card Wider -->
+<center>
+<div class="card card-cascade wider" style="width: 35rem;">
+
+  <!-- Card image -->
+  <div class="view view-cascade overlay">
+    <img  class="card-img-top" src="../static/book.jpg" alt="Card image cap">
+    <a href="#!">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title"><strong>{{post.book_name}}</strong></h4>
+    <!-- Subtitle -->
+    <h5 class="blue-text pb-2"><strong>Subject: {{post.book_sub}}</strong></h5>
+    <!-- Text -->
+    <p class="card-text">Semester : {{post.semester}}</p>
+    <p class="card-text">Contact : {{post.contact_detail}}</p>
+
+    <!-- Linkedin -->
+    <a class="px-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Twitter -->
+    <a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a>
+    <!-- Dribbble -->
+    <a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a>
+
+  </div>
 
 </div>
+</center>
+<br>
+<br>
+<!-- Card Wider -->
+    {%endfor%}
 
 {%endblock%}
