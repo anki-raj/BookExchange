@@ -60,12 +60,19 @@ def logout():
     session.clear()
     return render_template("home.html")
 
+@app.route('/borrow', method = ['GET','POST'])
+def borrow():
+    curl = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    curl.execute("SELECT * from book")
+    book = curl
+    return render_template('borrow.html', book = book)
+
 @app.route('/lend',methods=['GET','POST'])
 def lend():
     if request.method == 'GET':
         return render_template('lend.html')
     else:
-        flash(f"You have successfully added the book!")
+        # flash(f"You have successfully added the book!")
         book_name = request.form['name']
         book_sub = request.form['subject']
         contact = request.form['contact']
