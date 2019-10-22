@@ -1,6 +1,18 @@
 {%extends "layout.html"%}
 
+{%block content%}
+
 <div class="jumbotron">
-  
+    {% for post in book %}
+    <div class="jumbotron">
+      <div class="container">
+        <h1> Name : {{post.book_name}}</h1>
+        <h2> Contact : {{post.contact_detail}} </h2>
+      </div>
+    </div>
+    <br>
+    {%endfor%}
 
 </div>
+
+{%endblock%}

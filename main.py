@@ -60,11 +60,12 @@ def logout():
     session.clear()
     return render_template("home.html")
 
-@app.route('/borrow', method = ['GET','POST'])
+@app.route('/borrow', methods= ['GET','POST'])
 def borrow():
     curl = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     curl.execute("SELECT * from book")
     book = curl
+    curl.close()
     return render_template('borrow.html', book = book)
 
 @app.route('/lend',methods=['GET','POST'])
@@ -79,7 +80,7 @@ def lend():
         semester = request.form['semester']
         book_id = request.form['bookid']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT into book (book_id,book_name,contact_detail,book_sub,semester) VALUES (%s,%s,%s,%s,%s)",(book_id,book_name,book_sub,contact,semester))
+        cur.execute("INSERT into book (book_id,book_name,contact_detail,book_sub,semester) VALUES (%s,%s,%s,%s,%s)",(book_id,book_name,contact,book_sub,semester))
         mysql.connection.commit()
         return render_template('home.html')
 
